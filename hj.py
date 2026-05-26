@@ -434,6 +434,9 @@ def criar_usuario():
 
     if not dados.get('idUsuario'):
         return jsonify({"mensagem": "Campo idUsuario é obrigatório!"}), 400
+    
+    if not isinstance(dados.get('idUsuario'), int):
+        return jsonify({"mensagem": "O campo 'idUsuario' deve ser um número inteiro."}), 422
 
     if not dados.get('nome'):
         return jsonify({"mensagem": "Campo nome é obrigatório!"}), 400
@@ -473,13 +476,19 @@ def criar_animal():
     especieAnimal = ['gato','cachorro']
 
     if not dados.get('idAnimal'):
-        return jsonify({"mensagem" : "Campo de animal_id e obrigatorio!"}), 400
+        return jsonify({"mensagem" : "Campo de idAnimal e obrigatorio!"}), 400
+    
+    if not isinstance(dados.get('idAnimal'), int):
+        return jsonify({"mensagem": "O campo 'idAnimal' deve ser um número inteiro."}), 422
 
     if not dados.get('nome'):
         return jsonify({"mensagem" : "Campo de nome e obrigatorio!"}), 400
 
     if not dados.get('idade'):
         return jsonify({"mensagem" : "Campo de idade e obrigatorio!"}), 400
+    
+    if not isinstance(dados.get('idade'), int):
+        return jsonify({"mensagem": "O campo 'idade' deve ser um número inteiro."}), 422
 
     if not dados.get('especie'):
         return jsonify({"mensagem" : "Campo de especie e obrigatorio!"}), 400
@@ -516,12 +525,18 @@ def criar_doador():
 
     if not dados.get('idDoador'):
         return jsonify({"mensagem" : "Campo de idDoador e obrigatorio!"}), 400
+    
+    if not isinstance(dados.get('idDoador'), int):
+        return jsonify({"mensagem": "O campo 'idDoador' deve ser um número inteiro."}), 422
 
     if not dados.get('nome'):
         return jsonify({"mensagem" : "Campo de nome e obrigatorio!"}), 400
 
     if not dados.get('idade'):
         return jsonify({"mensagem" : "Campo de idade e obrigatorio!"}), 400
+    
+    if not isinstance(dados.get('idade'), int):
+        return jsonify({"mensagem": "O campo 'idade' deve ser um número inteiro."}), 422
     
     if not dados.get('sexo'):
         return jsonify({"mensagem" : "Campo de sexo e obrigatorio!"}), 400
@@ -552,13 +567,22 @@ def cadastrar_adocoes():
 
 
     if not dados.get('idAdocao'):
-        return jsonify({"mensagem" : "Campo id_adocao e obrigatorio!"}), 400
+        return jsonify({"mensagem" : "Campo idAdocao e obrigatório!"}), 400
+    
+    if not isinstance(dados.get('idAdocao'), int):
+        return jsonify({"mensagem": "O campo 'idAdocao' deve ser um número inteiro."}), 422
 
     if not dados.get('idAnimal'):
-        return jsonify({"mensagem" : "Campo id_animal e obrigatorio!"}), 400
+        return jsonify({"mensagem" : "Campo idAnimal e obrigatorio!"}), 400
+    
+    if not isinstance(dados.get('idAnimal'), int):
+        return jsonify({"mensagem": "O campo 'idAnimal' deve ser um número inteiro."}), 422
        
     if not dados.get('idDestinatario'):
-        return jsonify({"mensagem" : "Campo destinatario-id e obrigatorio!"}), 400
+        return jsonify({"mensagem" : "Campo idDestinatario e obrigatorio!"}), 400
+    
+    if not isinstance(dados.get('idDestinatario'), int):
+        return jsonify({"mensagem": "O campo 'idDestinatario' deve ser um número inteiro."}), 422
 
     if not dados.get('dataDoacao'):
         return jsonify({"mensagem" : "Campo dataDoacao e obrigatorio!"}), 400
@@ -583,6 +607,9 @@ def cadastrar_destinatario():
 
     if not dados.get('idDestinatario'):
         return jsonify({"mensagem" : "Campo de idDestinatario e obrigatorio!"}), 400
+    
+    if not isinstance(dados.get('idDestinatario'), int):
+        return jsonify({"mensagem": "O campo 'idDestinatario' deve ser um número inteiro."}), 422
 
     if not dados.get('nome'):
         return jsonify({"mensagem" : "Campo de nome e obrigatorio!"}), 400
